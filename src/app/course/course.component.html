@@ -1,0 +1,7 @@
+
+<h3>These are the favorites english courses of {{userName}}</h3>
+<ul>
+    @for( course of courses; track course.id){
+        <li (click)="fav(course.name)">{{ course.name }} </li>
+    }
+</ul>

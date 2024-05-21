@@ -1,0 +1,27 @@
+<section>
+@if(isLoggedIn){
+    <p>welcome , {{ userName }}</p>
+
+    <img
+    (click)="greet()" 
+    alt="photo" src="https://media.licdn.com/dms/image/D4D03AQG-kdXwOVG-KQ/profile-displayphoto-shrink_400_400/0/1713690868963?e=1721865600&v=beta&t=HjYPi6imIyd1PiUTt8G1WIv5zLHaxaTNv-HTjIMsgL0"/>
+
+    <app-courses (addFavoriteEvent)="getFavorites($event)" userName="{{ userName }}"></app-courses>
+
+    @if(favCourse !== ''){
+        <p>Your favorite english course is {{favCourse}}</p>
+    }
+} @else {
+    <p> You need to loggin </p>
+    <div>
+        <p>Please Introduce your name below</p>
+        <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput" #nameInput (input)="updateName(nameInput.value)" />
+    </div>
+    <button (click)="onClickLogin()">Log In</button>
+}
+
+</section>
+
+
+
